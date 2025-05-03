@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Rodrigo Palpa - Data Analyst{% endblock %}</title>
+
+    <style>
+        :root {
+            --primary-color: #1c2c4c;
+            --accent-color: #18bc9c;
+            --background-color: #f2f4f8;
+            --text-color: #333;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            scroll-behavior: smooth;
+        }
+
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            top: 0;
+            left: 0;
+            background-color: #0f172a;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav a {
+            color: white;
+            margin-left: 1rem;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        main {
+            max-width: 960px;
+            margin: 2rem auto;
+            padding: 2rem;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1s ease, transform 1s ease;
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        main.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 4rem;
+            border-top: 1px solid #ccc;
+            color: #777;
+        }
+
+        h1, h2 {
+            color: var(--primary-color);
+        }
+
+        small {
+            display: block;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Fondo animado -->
+    <div id="particles-js"></div>
+
+    <!-- Encabezado -->
+    <header>
+        <div>
+            <h1 style="margin: 0; font-size: 1.4rem;">Rodrigo Palpa</h1>
+            <small>Data Analyst | Python | Power BI | SQL</small>
+        </div>
+        <nav>
+            <a href="/">Inicio</a>
+            <a href="/cv/">CV</a>
+            <a href="/proyectos/">Proyectos</a>
+            <a href="/contacto/">Contacto</a>
+        </nav>
+    </header>
+
+    <!-- Contenido principal -->
+    <main id="content">
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2025 Rodrigo Palpa — Todos los derechos reservados
+    </footer>
+
+    <!-- Fondo animado -->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            // Partículas de fondo
+            particlesJS('particles-js', {
+                particles: {
+                    number: { value: 80 },
+                    color: { value: "#18bc9c" },
+                    shape: { type: "circle" },
+                    opacity: { value: 0.5 },
+                    size: { value: 3 },
+                    line_linked: {
+                        enable: true,
+                        distance: 150,
+                        color: "#18bc9c",
+                        opacity: 0.4,
+                        width: 1
+                    },
+                    move: {
+                        enable: true,
+                        speed: 2
+                    }
+                },
+                interactivity: {
+                    events: {
+                        onhover: { enable: true, mode: "repulse" },
+                        onclick: { enable: true, mode: "push" }
+                    },
+                    modes: {
+                        repulse: { distance: 100 },
+                        push: { particles_nb: 4 }
+                    }
+                },
+                retina_detect: true
+            });
+
+            // Mostrar contenido
+            const content = document.getElementById('content');
+            if (content) {
+                content.classList.add('visible');
+            }
+        });
+    </script>
+
+</body>
+</html>

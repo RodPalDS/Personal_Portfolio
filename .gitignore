@@ -1,0 +1,27 @@
+# Entorno virtual
+venv/
+
+# Archivos temporales de Python
+__pycache__/
+*.py[cod]
+
+# Base de datos local
+*.sqlite3
+
+# Archivos de entorno
+.env
+
+# Archivos de log y temporales
+*.log
+*.pot
+*.pyc
+*.pyo
+*.pyd
+
+# Archivos generados por Django
+/media/
+staticfiles/
+
+# IPython / Jupyter
+.ipynb_checkpoints/
+.ipython/
